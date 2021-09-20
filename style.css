@@ -1,6 +1,8 @@
 :root {
   --background-color: rgb(38, 70, 83); /* Charcoal */
   --icon-color: rgb(42, 157, 143); /* Persian-green */
+  --button-color: rgb(231, 111, 81); /* Orange Yellow Crayola */
+  --main-text-color: rgb(255, 255, 255);
 }
 
 * {
@@ -26,11 +28,61 @@ body {
 h1 {
   font-size: 3rem;
   margin-top: 3rem;
+  color: var(--main-text-color);
 }
 
 i {
   color: var(--icon-color);
+  margin-bottom: 5rem;
 }
 .icon {
   margin-top: 3rem;
+}
+.main-box {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+}
+
+.opt-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50rem;
+}
+
+.upper,
+.middle {
+  margin-bottom: 5rem;
+}
+
+select {
+  width: 10rem;
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+input {
+  padding: 1rem;
+  width: 10rem;
+  font-size: 2rem;
+}
+
+.swap {
+  text-transform: uppercase;
+  cursor: pointer;
+  background: rgb(233, 196, 106);
+  border: 0;
+  padding: 1rem 2rem;
+  width: 10rem;
+  color: #333;
+  font-size: 1.7rem;
+  /* font-weight: 600; */
+}
+.exchange-rate {
+  font-size: 2rem;
+  color: rgb(233, 196, 106);
 }
