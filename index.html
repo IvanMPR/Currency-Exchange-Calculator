@@ -17,8 +17,8 @@
     <div class="icon"><i class="fas fa-calculator fa-10x"></i></div>
     <div class="main-box">
       <div class="upper opt-menu">
-        <div class="select-wrapper" id="currency">
-          <select id="currencyList">
+        <div class="select-wrapper">
+          <select class="currencyList base-list">
             <option value="USD" selected="selected">USD</option>
             <option value="EUR">EUR</option>
             <option value="JPY" label="Japanese yen">JPY</option>
@@ -201,7 +201,7 @@
       </div>
       <div class="lower opt-menu">
         <div class="select-wrapper">
-          <select id="currencyList">
+          <select class="currencyList output-list">
             <option value="USD" label="US dollar">USD</option>
             <option value="EUR" selected="selected" label="Euro">EUR</option>
             <option value="JPY" label="Japanese yen">JPY</option>
@@ -375,7 +375,7 @@
           </select>
         </div>
         <div class="input-wrapper">
-          <input type="number" class="output" id="result" />
+          <input type="number" class="output-field" />
         </div>
       </div>
     </div>
