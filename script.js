@@ -59,7 +59,7 @@ function swapPair() {
 // Listeners
 // Get default data on start, for USD
 window.addEventListener('load', function () {
-  // Remove long labels from currency lists(two lines below leaves JPY instead Japanese Yen)
+  // Remove long labels from currency lists(example: JPY instead Japanese Yen)
   const currencyList = document.querySelectorAll('option');
   currencyList.forEach(el => (el.label = ''));
   // API Call
