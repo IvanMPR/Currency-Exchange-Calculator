@@ -70,6 +70,7 @@ window.addEventListener('load', function () {
   // API Call
   getData('USD');
   baseList.value = 'USD';
+  outputList.value = 'EUR';
 });
 
 baseList.addEventListener('change', function () {
