@@ -17,7 +17,7 @@ async function getData(curr) {
     console.log(request);
     const response = await request.json();
     if (response.result === 'error') {
-      throw new Error('Unkown Currency Code');
+      throw new Error('Unknown Currency Code');
     }
     console.log(response);
     // Copy response rates to data object
