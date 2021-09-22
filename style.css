@@ -105,9 +105,9 @@ input {
   .middle {
     width: 100%;
   }
-  input {
+  /* input {
     width: 10rem;
-  }
+  } */
 }
 
 @media only screen and (min-width: 301px) and (max-width: 600px) {
@@ -122,9 +122,9 @@ input {
   .middle {
     width: 100%;
   }
-  input {
+  /* input {
     width: 10rem;
-  }
+  } */
 }
 
 @media only screen and (min-width: 601px) and (max-width: 1100px) {
@@ -139,9 +139,9 @@ input {
   .middle {
     width: 80%;
   }
-  input {
+  /* input {
     width: 15rem;
-  }
+  } */
 }
 @media only screen and (min-width: 1101px) {
   .lower,
