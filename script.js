@@ -69,6 +69,7 @@ window.addEventListener('load', function () {
   currencyList.forEach(el => (el.label = ''));
   // API Call
   getData('USD');
+  baseList.value = 'USD';
 });
 
 baseList.addEventListener('change', function () {
