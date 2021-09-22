@@ -14,17 +14,14 @@ async function getData(curr) {
   try {
     const url = `https://open.er-api.com/v6/latest/${curr}`;
     const request = await Promise.race([fetch(url), timeout(5)]);
-    console.log(request);
     const response = await request.json();
     if (response.result === 'error') {
       throw new Error('Unknown Currency Code');
     }
-
     // Copy response rates to data object
     data.rates = response.rates;
-
     const pair = outputList.value;
-    const fixed = response.rates[curr]; // Default selected currency value, always 1
+    const fixed = response.rates[curr]; // Default selected value for every base currency, always 1
     baseInput.value = baseInput.value || fixed; // If empty, input will be 1, otherwise input value
     output.value = (baseInput.value * fixed * response.rates[pair]).toFixed(2);
     displayRate(curr, data, pair);
@@ -72,7 +69,7 @@ window.addEventListener('load', function () {
   currencyList.forEach(el => (el.label = ''));
   // API Call
   getData('USD');
-  // prevent Firefox not displaying usd eur values after page refresh
+  // prevent Firefox not displaying default usd eur values after page refresh
   baseList.value = 'USD';
   outputList.value = 'EUR';
 });
