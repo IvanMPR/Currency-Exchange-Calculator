@@ -39,12 +39,11 @@ i {
   margin-top: 3rem;
 }
 .main-box {
-  margin-top: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: auto;
+  margin: 0 auto 3rem;
 }
 
 .opt-menu {
