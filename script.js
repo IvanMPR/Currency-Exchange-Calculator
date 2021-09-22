@@ -1,6 +1,6 @@
 'use-strict';
 
-// Selection
+// Selections
 const baseList = document.querySelector('.base-list');
 const outputList = document.querySelector('.output-list');
 const baseInput = document.querySelector('.base-input');
@@ -13,8 +13,12 @@ const data = {};
 async function getData(curr) {
   try {
     const url = `https://open.er-api.com/v6/latest/${curr}`;
-    const request = await fetch(url);
+    const request = await Promise.race([fetch(url), timeout(5)]);
+    console.log(request);
     const response = await request.json();
+    if (response.result === 'error') {
+      throw new Error('Unkown Currency Code');
+    }
     console.log(response);
     // Copy response rates to data object
     data.rates = response.rates;
@@ -26,6 +30,7 @@ async function getData(curr) {
     displayRate(curr, data, pair);
   } catch (err) {
     console.error(err);
+    errorMessage(outputParagraph, err);
   }
 }
 
@@ -89,7 +94,16 @@ function calcRateReversed() {
     .filter(el => el == +el)
     .filter(el => el)
     .map(el => +el);
-
-  // console.log(parseInt(outputParagraph.textContent));
   return (baseInput.value = (+output.value / parsedRate[0]).toFixed(2));
+}
+function errorMessage(el, error) {
+  el.innerHTML = '';
+  el.textContent = `${error.message}! Try again!`;
+}
+function timeout(sec) {
+  return new Promise(function (_, reject) {
+    setTimeout(function () {
+      reject(new Error('Request took too long'));
+    }, sec * 1000);
+  });
 }
