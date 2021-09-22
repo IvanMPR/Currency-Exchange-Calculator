@@ -45,7 +45,7 @@ function displayRate(currency, obj, pair) {
 
 function onOutputListChange(obj) {
   const newCurrency = outputList.value;
-  output.value = +baseInput.value * obj.rates[newCurrency];
+  output.value = (+baseInput.value * obj.rates[newCurrency]).toFixed(2);
   displayRate(baseList.value, data, outputList.value);
 }
 function swapPair() {
