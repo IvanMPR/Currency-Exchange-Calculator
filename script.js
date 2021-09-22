@@ -22,7 +22,7 @@ async function getData(curr) {
     const pair = outputList.value;
     const fixed = response.rates[curr]; // Default selected currency value, always 1
     baseInput.value = baseInput.value || fixed;
-    output.value = baseInput.value * fixed * response.rates[pair];
+    output.value = (baseInput.value * fixed * response.rates[pair]).toFixed(2);
     displayRate(curr, data, pair);
   } catch (err) {
     console.error(err);
@@ -31,7 +31,7 @@ async function getData(curr) {
 
 function calcRate(baseInp, obj, pair) {
   const result = +baseInp.value * obj.rates[pair];
-  return (output.value = result);
+  return (output.value = result.toFixed(2));
 }
 
 function displayRate(currency, obj, pair) {
@@ -78,4 +78,18 @@ outputList.addEventListener('change', function () {
   onOutputListChange(data);
 });
 
+output.addEventListener('change', calcRateReversed);
+
 swapBtn.addEventListener('click', swapPair);
+
+function calcRateReversed() {
+  const parsedRate = outputParagraph.textContent
+    .split('=')[1]
+    .split(' ')
+    .filter(el => el == +el)
+    .filter(el => el)
+    .map(el => +el);
+
+  // console.log(parseInt(outputParagraph.textContent));
+  return (baseInput.value = (+output.value / parsedRate[0]).toFixed(2));
+}
