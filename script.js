@@ -32,6 +32,7 @@ async function getData(curr) {
 // Calc values between inputs without calling the API
 function calcRate(baseInp, obj, pair) {
   const result = +baseInp.value * obj.rates[pair];
+  // If base input is negative value, return and clear output field
   if (+baseInp.value < 0) {
     output.value = '';
     return;
@@ -101,6 +102,7 @@ function calcRateReversed() {
     .filter(el => el == +el)
     .filter(el => el)
     .map(el => +el);
+  // If output value is negative, return and clear baseInput field
   if (+output.value < 0) {
     baseInput.value = '';
     return;
