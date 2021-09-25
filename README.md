@@ -10,5 +10,8 @@ Idea for this project came from <a href="https://www.udemy.com/course/web-projec
 Again, UI experience and app functionality should work exactly the same as above, 
 but code is 100% mine, I worked it out without taking a look at Brad's solution.
 
+Negative input values are ingonred. Output is also 'live', when user change output value manualy,
+input value changes accordingly.
+
 Fun and very useful project for practicing variety of JavaScript language features.
 
